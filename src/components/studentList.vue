@@ -43,6 +43,7 @@
                     <v-layout wrap>
                       <v-flex xs12 sm6 md6>
                         <v-text-field v-model="editedItem.first_name" label="First Name"></v-text-field>
+                        <v-text-field type="hidden" v-model="editedItem.id" ></v-text-field>
                       </v-flex>
                       <v-flex xs12 sm6 md6>
                         <v-text-field v-model="editedItem.last_name" label="Last Name"></v-text-field>
@@ -139,7 +140,7 @@ export default {
         value: 'id'
       },
       { text: 'Username', value: 'username' },
-      { text: 'Name', value: 'name' },
+      { text: 'Name', value: 'editItemname' },
       { text: 'Email', value: 'email' },
       { text: 'Actions', value: 'name', align: 'left', sortable: false }
     ],
@@ -194,7 +195,7 @@ export default {
       }, 300)
     },
     save () {
-      alert(this.editedIndex,id)
+      alert(this.editedIndex.id)
       if (this.editedIndex > -1) {
         Object.assign(this.desserts[this.editedIndex], this.editedItem)
       } else {
